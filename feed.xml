@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ourren</title>
+    <description>Thoughts, research and life!</description>
+    <link>http://www.ourren.com/en/en/</link>
+    <atom:link href="http://www.ourren.com/en/en/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 06 Dec 2015 21:19:02 -0800</pubDate>
+    <lastBuildDate>Sun, 06 Dec 2015 21:19:02 -0800</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Chinese stopwords for NLP</title>
+        <description>&lt;p&gt;What’s are stopwords? Maybe someone need to ask, actually the stopwords are the meaningless words such as that, is, at and etc. That’s to say it is ok if we remove these words from sentence. &lt;a href=&quot;http://en.wikipedia.org/wiki/Stop_words&quot;&gt;Wikipedia:Stop words&lt;/a&gt; also give a explain about this word:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In computing, stop words are words which are filtered out before or after processing of natural language data (text). There is no single universal list of stop words used by all processing of natural language tools, and indeed not all tools even use such a list. Some tools specifically avoid removing these stop words to support phrase search.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Any group of words can be chosen as the stop words for a given purpose. For some search engines, these are some of the most common, short function words, such as the, is, at, which, and on. In this case, stop words can cause problems when searching for phrases that include them, particularly in names such as ‘The Who’, ‘The The’, or ‘Take That’. Other search engines remove some of the most common words—including lexical words, such as “want”—from a query in order to improve performance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Fortunately &lt;a href=&quot;http://www.nltk.org/&quot;&gt;Nltk&lt;/a&gt; provided stopwords corpus for english language, but the Chinese segment tool &lt;a href=&quot;https://github.com/fxsjy/jieba&quot;&gt;Jieba&lt;/a&gt; did not have stopwords corpus for Chinese. Usually the stopwords generally is a python list element, we can easily build our own stopwords corpus, and the BaiduGuide also provide some &lt;a href=&quot;http://www.baiduguide.com/baidu-stopwords/&quot;&gt;Chinese stop words&lt;/a&gt; for programmer. So the &lt;a href=&quot;https://github.com/ourren/stopwords_zh&quot;&gt;stopwords_zh&lt;/a&gt; project are presented after collected these words and save to a single file. You can download these file if you need to remove Chinese stopwords.&lt;/p&gt;
+
+&lt;h4 id=&quot;using&quot;&gt;using&lt;/h4&gt;
+
+&lt;p&gt;Here is a simple code for you to use this project. You need to carefull about the Chinese encode method (We use codecs to encode and decode Chinese words).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#! /usr/bin/env python
+# encoding: utf-8
+import codecs
+import jieba
+
+if __name__ == &quot;__main__&quot;:
+    str_in = &quot;小明硕士毕业于中国科学院计算所，后在日本京都大学深造&quot;
+    stopwords = codecs.open(&#39;stopwords&#39;, &#39;r&#39;, &#39;utf-8&#39;).read().split(&#39;,&#39;)
+    seg_list = jieba.cut_for_search(str_in)
+    for seg in seg_list:
+        if seg not in stopwords:
+            print seg
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Mon, 06 Apr 2015 15:53:37 -0700</pubDate>
+        <link>http://www.ourren.com/en/en/2015/04/06/chinese-stopwords-for-nlp/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2015/04/06/chinese-stopwords-for-nlp/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Something you need to know about SCI</title>
+        <description>&lt;p&gt;The Science Citation Index (SCI) is a citation index originally produced by the Institute for Scientific Information (ISI) and created by Eugene Garfield. It was officially launched in 1964. It is now owned by Thomson Reuters. The larger version (Science Citation Index Expanded) covers more than 6,500 notable and significant journals, across 150 disciplines, from 1900 to the present. These are alternately described as the world’s leading journals of science and technology, because of a rigorous selection process. From &lt;a href=&quot;http://en.wikipedia.org/wiki/Science_Citation_Index&quot;&gt;wikipedia&lt;/a&gt;.
+&lt;!-- more --&gt;&lt;/p&gt;
+
+&lt;p&gt;Even though SCI is very popular in China, but more than half foreign researchers didn’t know what’s SCI, especially in Computer science field. They just care about the toppest conferences all over the world, because it’s really very fast to publish their research wrok.&lt;/p&gt;
+
+&lt;p&gt;As for SCI, the first impression for many Chinese researchers is that: difficult to be published, long time to wait for reply, cost so much money. But they still work hard and published so many papers every year, because all the main factors for their promotion, NSF and salary is the amount of the SCI articles. Actually China has become world’s second-largest producer of SCI articles in 2014.&lt;/p&gt;
+
+&lt;p&gt;Many Chinese researchers who doing some research work in security field really did not know how many SCI journals and which are better. There are only one institute have a recommend SCI journal list&lt;a href=&quot;http://www.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2567814757428&quot;&gt;China Computer Federation&lt;/a&gt;. But this is not enough for Chinese researchers, because there are so many researchers and maybe their papers’s quality are not good. So I have analyzed all the security journals from &lt;a href=&quot;http://emuch.net/bbs/journal.php?tag=%D0%C5%CF%A2%B0%B2%C8%AB&quot;&gt;emuch journal list&lt;/a&gt;, and make some notes about these journals as below:&lt;/p&gt;
+
+&lt;p&gt;best journal in security&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IEEE TRANSACTIONS ON INFORMATION FORENSICS AND SECURITY&lt;/li&gt;
+  &lt;li&gt;JOURNAL OF CRYPTOLOGY [2y-4y]&lt;/li&gt;
+  &lt;li&gt;COMPUTERS &amp;amp; SECURITY [3-5]&lt;/li&gt;
+  &lt;li&gt;ACM TRANSACTIONS ON INFORMATION AND SYSTEM SECURITY [6-12]&lt;/li&gt;
+  &lt;li&gt;IEEE Transactions on Dependable and Secure Computing&lt;/li&gt;
+  &lt;li&gt;COMPUTER NETWORKS [3-6]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;fast underview journal&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;INTERNATIONAL JOURNAL OF QUANTUM INFORMATION [2-3]&lt;/li&gt;
+  &lt;li&gt;IET INFORMATION SECURITY [3-5]&lt;/li&gt;
+  &lt;li&gt;JOURNAL OF MEDICAL SYSTEMS [2-3]&lt;/li&gt;
+  &lt;li&gt;MULTIMEDIA TOOLS AND APPLICATIONS [3-6]&lt;/li&gt;
+  &lt;li&gt;CHINA COMMUNICATIONS [3-5]&lt;/li&gt;
+  &lt;li&gt;SECURITY AND COMMUNICATION NETWORKS [5-6]&lt;/li&gt;
+  &lt;li&gt;NEUROCOMPUTING [5-6]&lt;/li&gt;
+  &lt;li&gt;OPTICAL ENGINEERING [1-2]&lt;/li&gt;
+  &lt;li&gt;ETRI JOURNAL [3-6]&lt;/li&gt;
+  &lt;li&gt;IEICE TRANSACTIONS ON COMMUNICATIONS [4-6]&lt;/li&gt;
+  &lt;li&gt;INFORMATION TECHNOLOGY AND CONTROL&lt;/li&gt;
+  &lt;li&gt;IET SOFTWARE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;long time underview journal&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IEEE TRANSACTIONS ON INFORMATION THEORY [12-13]&lt;/li&gt;
+  &lt;li&gt;WIRELESS PERSONAL COMMUNICATIONS [6-12]&lt;/li&gt;
+  &lt;li&gt;JOURNAL OF INFORMATION SCIENCE AND ENGINEERING [6-10]&lt;/li&gt;
+  &lt;li&gt;FUNDAMENTA INFORMATICAE [9-12]&lt;/li&gt;
+  &lt;li&gt;CRYPTOLOGIA [12-24]&lt;/li&gt;
+  &lt;li&gt;JOURNAL OF INTERNET TECHNOLOGY [12-15]&lt;/li&gt;
+  &lt;li&gt;INTERNATIONAL JOURNAL OF COMMUNICATION SYSTEMS [12-15]&lt;/li&gt;
+  &lt;li&gt;Journal of Information Security and Applications [12-13]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;other&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;INTERNATIONAL JOURNAL OF DISTRIBUTED SENSOR NETWORKS [1-3]&lt;/li&gt;
+  &lt;li&gt;COMMUNICATIONS IN THEORETICAL PHYSICS [1-2]&lt;/li&gt;
+  &lt;li&gt;COMPUTERS IN INDUSTRY&lt;/li&gt;
+  &lt;li&gt;THE SCIENTIFIC WORLD JOURNAL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;if you have any good information about SCI journals in security, you need to tell me, thx.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 12 Mar 2015 07:39:32 -0700</pubDate>
+        <link>http://www.ourren.com/en/en/2015/03/12/something-you-need-to-know-about-sci/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2015/03/12/something-you-need-to-know-about-sci/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Awesome papers on NDSS 2015</title>
+        <description>&lt;p&gt;The NDSS Symposium 2015 Conference is held at 08-11, February in San Diego, California. So we could download conference papers from the &lt;a href=&quot;http://www.internetsociety.org/events/ndss-symposium-2015/ndss-2015-programme&quot;&gt;official website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are 11 sessions in this conference, including: Web security, Mobile security, Detection Analysis Prevention &amp;amp; Response, Privacy, Social Networks and Cloud Services and etc.&lt;/p&gt;
+
+&lt;p&gt;As for me, I am just interested in Web security, Privacy and Social Networks. But the papers of Web security is really lack of creativity. These topics (Parking domain and Typosquatting) have similar papers at USENIX last year with different researchers. But I also found some nice papers only in my area(if you have different interest, you need to pick it by yourself).&lt;/p&gt;
+
+&lt;p&gt;Nice paper list as below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Machine Learning Classification over Encrypted Data&lt;/li&gt;
+  &lt;li&gt;Bloom Cookies: Web Search Personalization without User Tracking&lt;/li&gt;
+  &lt;li&gt;NSEC5: Provably Preventing DNSSEC Zone Enumeration&lt;/li&gt;
+  &lt;li&gt;Mind Your Blocks: On the Stealthiness of Malicious BGP Hijacks&lt;/li&gt;
+  &lt;li&gt;Identifying Cross-origin Resource Status Using Application Cache&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thinks NDSS Symposium, we can follow the latest security research and read nice papers immediately.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 Feb 2015 05:31:32 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2015/02/10/papers-of-ndss-2015/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2015/02/10/papers-of-ndss-2015/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Awesome papers on 23rd USENIX security</title>
+        <description>&lt;p&gt;Although the 24rd USENIX security symposium is calling for paper, but I have not saw any papers of 23rd USENIX security symposium. So I am plan to read some nice papers about my area and write some note every week. &lt;!-- more --&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;paper-list&quot;&gt;paper list&lt;/h3&gt;
+
+&lt;p&gt;I have picked some papers just from my interest as below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Privee: An Architecture for Automatically Analyzing Web Privacy Policies	
+ &amp;gt;Note: compare with common browser AD plugins, the paper desribe the automatic classification technology.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;XRay: Enhancing the Web’s Transparency with Differential Correlation&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: the idea is very nice, from the recommend result we can infer the facts which could affect the result. But the evaluation seems difficult for me to understand.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;An Internet-Wide View of Internet-Wide Scanning&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: many aspects analysis: the type of scanner, the servive name, the ip address, the host providers, the research scanner, the vulnerable service scan, the reflect from organization and etc.. Really detail and fully consider. Did not have any algorithm.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Exit from Hell? Reducing the Impact of Amplification DDoS Attacks&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Effective Attacks and Provable Defenses for Website Fingerprinting&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A Bayesian Approach to Privacy Enforcement in Smartphones&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The Long “Taile” of Typosquatting Domain Names&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: talk about the long string domain with similar words(typosquatting). Also associate with the whois information. There domains are used for parking, malware, phishing, and etc..&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Understanding the Dark Side of Domain Parking&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: the paper are better than the previous paper. Because it have analyzed the whole aspect of parking domains. How the parking domain company could got profit from parking domains. But the expricence are last for several months, and author also bought some domains to dig the dark side of domain parking.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Towards Detecting Anomalous User Behavior in Online Social Networks&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Principal Component Analysis (PCA) that models the behavior of normal users accurately and identifies significant deviations from it as anomalous. Our key insight, which we validate empirically, is that normal user be- havior in online social networks can be modeled using
+￼￼USENIX Association only a small number of suitably chosen latent features. Principal Component Analysis (PCA), a technique with well-known applications in uncovering network traffic anomalies [44], can be used to uncover anomalous be- havior. Such anomalous behavior may then be subjected to stricter requirements or manual investigations.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Man vs. Machine: Practical Adversarial Detection of Malicious Crowdsourcing Workers&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Password Managers: Attacks and Defenses&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;the idea also appeard in my brain, but the author’s thought have included all kinds of security issue about the password managers. Such as the domain and path, protocal, form action, autocomplete attribute and etc.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The Emperor’s New Password Manager: Security Analysis of Web-based Password Managers&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;compare to the above paper, this paper analyze more real security issues. But it only talked one popular password manager(lastpass, not keepass, 1pass). Maybe the other popular app did not have any vulnerability.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A Large-Scale Empirical Analysis of Chinese Web Passwords&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Analyze the digital, characters, letter, keyboard patterns, pingyin, dates, and the structures of password, then put forward PCFG (Probabilistic Context-Free Grammar) based password guessing method by inserting Pinyins (about 2.3% more entries) into the attack dictionary and insert our observed composition rules into the guessing rule set.
+very similar paper 2014 NDSS:[The Tangled Web of Password Reuse]&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Automatically Detecting Vulnerable Websites Before They Turn Malicious&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hulk: Eliciting Malicious Behavior in Browser Extensions&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Precise Client-side Protection against DOM-based Cross-Site Scripting&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the Effective Prevention of TLS Man-in-the-Middle Attacks in Web Applications&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 25 Jan 2015 12:32:30 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2015/01/25/awesome-paper-on-23rd-USENIX-security-conference/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2015/01/25/awesome-paper-on-23rd-USENIX-security-conference/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>fix install error with scapy on Mac</title>
+        <description>&lt;p&gt;Today there are some errors when I run scapy on Mac system. I installed scapy with pip (pip install scapy). it catchs some errors:
+&lt;!-- more --&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Traceback (most recent call last):
+File &quot;/usr/local/bin/scapy&quot;, line 25, in 
+interact()
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/main.py&quot;, line 278, in interact
+scapy_builtins = import(&quot;all&quot;,globals(),locals(),&quot;.&quot;).dict
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/all.py&quot;, line 25, in 
+from route import *
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/route.py&quot;, line 162, in 
+	conf.route=Route()
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/route.py&quot;, line 22, in init
+self.resync()
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/route.py&quot;, line 31, in resync
+self.routes = read_routes()
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/arch/unix.py&quot;, line 86, in read_routes
+ifaddr = scapy.arch.get_if_addr(netif)
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/arch/init.py&quot;, line 36, in get_if_addr
+return socket.inet_ntoa(get_if_raw_addr(iff))
+File &quot;/usr/local/lib/python2.7/site-packages/scapy/arch/pcapdnet.py&quot;, line 187, in get_if_raw_addr
+i = dnet.intf()
+AttributeError: &#39;module&#39; object has no attribute &#39;intf&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I have search from Google, seems many guys have come across the same problem with me. I have solved this problem with the follow steps:&lt;/p&gt;
+
+&lt;p&gt;1.remove the previous scapy.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo pip install pyrex --allow-all-external --allow-unverified pyrex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2.reinstall the scapy with brew.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew reinstall scapy 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The whole steps are all above.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 23 Jan 2015 08:10:07 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2015/01/23/solve-the-install-error-with-scapy-on-mac/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2015/01/23/solve-the-install-error-with-scapy-on-mac/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Remove common words using nltk</title>
+        <description>&lt;p&gt;The current topic is that: I want to remove the common words from my sample data. But I have searched from the Internet, it did not have similar post. So I want to share some tips about this topic. Since I’m doing some research with NLP, and &lt;a href=&quot;http://www.nltk.org/&quot;&gt;nltk&lt;/a&gt; is the best package with english.
+&lt;!-- more --&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;common-words&quot;&gt;common words&lt;/h4&gt;
+
+&lt;p&gt;the first question is how to define the common words? Maybe we can think in two ways: the first is the most often used words on the Internet, dictionary, or books; the second is the most high frequency words in the sample data. Actually it is all depend on your situation.&lt;/p&gt;
+
+&lt;h4 id=&quot;stopwords&quot;&gt;stopwords&lt;/h4&gt;
+
+&lt;p&gt;the nltk have a corpus called &lt;a href=&quot;http://www.nltk.org/book/ch02.html&quot;&gt;stopwords&lt;/a&gt;, it means: 
+&amp;gt;There is also a corpus of stopwords, that is, high-frequency words like the, to and also that we sometimes want to filter out of a document before further processing. Stopwords usually have little lexical content, and their presence in a text fails to distinguish it from other texts.&lt;/p&gt;
+
+&lt;p&gt;how to get the common words list, it’s very simple, just as below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from nltk.corpus import stopwords	
+english_stopwords = stopwords.words(&#39;english&#39;)
+print len(english_stopwords)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;but the length of stopwords is very small, only (127 words).&lt;/p&gt;
+
+&lt;h4 id=&quot;high-frequency-in-sample&quot;&gt;high frequency in sample&lt;/h4&gt;
+
+&lt;p&gt;if the above methods could not solve the problem in our research, we need to create our own often words. Here is my current method:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;convert the sample data to word list;&lt;/li&gt;
+  &lt;li&gt;calculate the frequency of the word list;&lt;/li&gt;
+  &lt;li&gt;get the top frequency of the list, this is the common words.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;the python code is below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import nltk
+def convertlist(filename):
+    list_out = list()
+    fhandle = open(filename)
+    for line in fhandle.readlines():
+        line = line.replace(&quot;\n&quot;, &quot;&quot;).strip()
+        line = line.lower()
+        try:
+            texts_tokenized = word_tokenize(line)
+            for words in texts_tokenized:
+                english_punctuations = [&#39;,&#39;, &#39;.&#39;, &#39;:&#39;, &#39;;&#39;, &#39;?&#39;, &#39;(&#39;, &#39;)&#39;, &#39;[&#39;, &#39;]&#39;, &#39;&amp;amp;&#39;, &#39;!&#39;, &#39;*&#39;, &#39;@&#39;, &#39;#&#39;, &#39;$&#39;, &#39;%&#39;]
+                if not words in english_punctuations:
+                    list_out.append(words)
+        except:
+            continue
+    return list_out
+
+def get_common_words():
+    ret_list = []
+    out_path = &quot;./sample_data&quot;
+    content = convertlist(out_path)
+    fdist2 = nltk.FreqDist(content)
+    most_list = fdist2.most_common(400)
+    for x, value in most_list:
+        ret_list.append(x)
+    return ret_list
+    
+def main():
+	common_list = get_common_words()
+	print common_list[0:100]
+
+if __name__ == &#39;__main__&#39;:
+   		main()
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Thu, 15 Jan 2015 07:42:18 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2015/01/15/remove-common-words-using-nltk/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2015/01/15/remove-common-words-using-nltk/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Latex environment on Mac OS X</title>
+        <description>&lt;p&gt;Latex is new format typesetting for researchers, especially for writing paper and books. You can use its grammer and tools to export perfect documents. Today we want to deploy the Latex enviroment for Mac. As all we know, Sublime Text is a good editor tool for Promgramer and Web developer, not just only because it has a beatiful theme but also has many plugins. Latextools is another Latex tool for Sublime Text. In order to finish this, we need to install the following programs step by step.
+&lt;!-- more --&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;step1-install-mactex&quot;&gt;Step1: install Mactex&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.tug.org/mactex/&quot;&gt;Mactex&lt;/a&gt; is the base latex enviroment for Mac. You can download the latest MacTex.pkg and install as usual.&lt;/p&gt;
+
+&lt;h4 id=&quot;step2-install-sublime-text&quot;&gt;Step2: install Sublime Text&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.sublimetext.com/3&quot;&gt;Sublime Text&lt;/a&gt; is a commerce software but could use for free. It will be our text editor for Latex.&lt;/p&gt;
+
+&lt;p&gt;After you have installed the sublime text, you also need to install some packages:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Need to install &lt;a href=&quot;https://sublime.wbond.net/installation&quot;&gt;Sublime package control&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;Install Latextools. Open sublime and press “Command+Shift+P” to open the command pallet. Alternatively you can find it in the Tools menu. Start typing “Install Package” and you’ll find it auto-completes if for you. Select and hit “Enter”.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;step3-install-skim&quot;&gt;Step3: install Skim&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://skim-app.sourceforge.net/&quot;&gt;Skim&lt;/a&gt; is free pdf reader for Mac.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download and install SKIM PDF viewer.&lt;/li&gt;
+  &lt;li&gt;Open Skim, go to Preferences &amp;gt; Sync.&lt;/li&gt;
+  &lt;li&gt;Uncheck “Check for file changes” option.&lt;/li&gt;
+  &lt;li&gt;Under Preset type “Custom”.&lt;/li&gt;
+  &lt;li&gt;Run Command as below:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The detail comand:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl
+Finally set Arguments to:
+&quot;%file&quot;:%line
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;step4-configure&quot;&gt;Step4: configure&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;If you could see the live preview with your documents, just say you want to see two windows(sublime and skim) on the Mac screen, you need to install &lt;a href=&quot;http://manytricks.com/moom/&quot;&gt;Moom&lt;/a&gt; software.&lt;/li&gt;
+  &lt;li&gt;If you want to write some Chinese paper with latex, you also need to solve the font problems, you can see it from here,&lt;a href=&quot;http://www.readern.com/sublime-text-latex-chinese-under-mac.html&quot;&gt;solve the Chinese problem with Latex&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;materials-about-latex&quot;&gt;Materials about Latex&lt;/h4&gt;
+
+&lt;p&gt;If you are a newbie for Latex, you need some usefull links, here is my current learn list.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/s/1dDzocwT&quot;&gt;Latex video by ChinaTex&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ctex.org/OnlineDocuments&quot;&gt;CTEX : OnlineDocuments&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ctan.mirror.rafal.ca/info/lshort/english/lshort.pdf&quot;&gt;The Not So Short Introduction to LATEX 2ε&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sharelatex.com/templates&quot;&gt;Latex Template Download&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/upload/sublimelatex.png&quot; alt=&quot;Sublime Latex&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;Reference&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://economistry.com/2013/01/installing-and-using-latex-for-mac/&quot;&gt;Making your first PDF with LaTeX and Sublime Text 2 for Mac&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.readern.com/sublime-text-latex-chinese-under-mac.html&quot;&gt;deploy Latex on Mac&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 25 Dec 2014 05:51:05 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2014/12/25/latex-on-mac/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2014/12/25/latex-on-mac/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Security conferences ranking</title>
+        <description>&lt;p&gt;Today I heard from one of my friends: there are top four security conferences all over the world. Actually I did not know about it. So I want to write it down and give you some tips.
+the top security conferences:&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;1.&lt;a href=&quot;http://www.ieee-security.org/TC/SP-Index.html&quot;&gt;IEEE Symposium on Security and Privacy&lt;/a&gt; (S&amp;amp;P (Oakland));
+2.&lt;a href=&quot;http://www.acm.org/sigs/sigsac/ccs/&quot;&gt;ACM Conference on Computer and Communications Security&lt;/a&gt;(CCS);
+3.&lt;a href=&quot;http://www.iacr.org/conferences/&quot;&gt;International Cryptology Conference&lt;/a&gt; (Crypt);
+4.&lt;a href=&quot;http://www.iacr.org/conferences/&quot;&gt;European Cryptology Conference&lt;/a&gt; (Eurocrypt);
+5.&lt;a href=&quot;https://www.usenix.org/conferences/byname/108&quot;&gt;Usenix Security Symposium&lt;/a&gt; (Security);
+6.&lt;a href=&quot;http://www.isoc.org/isoc/conferences/ndss/&quot;&gt;SOC Network and Distributed System Security Symposium&lt;/a&gt; (NDSS);
+7.&lt;a href=&quot;http://www.raid-symposium.org/&quot;&gt;International Symposium on  Research in Attacks, Intrusions and Defenses&lt;/a&gt; (RAID);&lt;/p&gt;
+
+&lt;p&gt;the other conferences you can ref the follow two links:
+1.&lt;a href=&quot;http://faculty.cs.tamu.edu/guofei/sec_conf_stat.htm&quot;&gt;Computer Security Conference Ranking and Statistic&lt;/a&gt;;
+2.&lt;a href=&quot;http://icsd.i2r.a-star.edu.sg/staff/jianying/conference-ranking.html&quot;&gt;Top Crypto and Security Conferences Ranking&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;the recent security events and conference:
+1.&lt;a href=&quot;http://www.ieee-security.org/Calendar/cipher-hypercalendar.html&quot;&gt;IEEE Cipher’s Calendar of Security and Privacy Related Events&lt;/a&gt;;
+2.&lt;a href=&quot;http://www.uclouvain.be/crypto/callforpapers/forthcoming&quot;&gt;UCL Crypto Group  | Call for papers&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 Dec 2014 15:04:45 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2014/12/10/security-conferences-ranking/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2014/12/10/security-conferences-ranking/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Several necessary work before doing research</title>
+        <description>&lt;p&gt;I want to do some research jobs in the next year. But there are many things need to be done before I write some paper as below:&lt;/p&gt;
+
+&lt;p&gt;First, you need to read some papers in this area. As you know, my current interest is about Web offensive and defensive technology, Web privacy protection, Web development and testing in modern high technology life. I have summaried that there are some ways that I could to search some usefull paper in my area.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The top security conference. You can choose this good link, it provides all the security conference all over the world. &lt;a href=&quot;http://faculty.cs.tamu.edu/guofei/sec_conf_stat.htm&quot;&gt;Computer Security Conference Ranking and Statistic&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;Using &lt;a href=&quot;http://scholar.google.com/&quot;&gt;Google Scholar&lt;/a&gt; and &lt;a href=&quot;http://dblp.uni-trier.de/&quot;&gt;dplp&lt;/a&gt;. You can search with keywords and famous author. Just take &lt;strong&gt;privacy&lt;/strong&gt; topic as example, &lt;em&gt;keywords: browser privacy, mobile privacy and etc.&lt;/em&gt;;&lt;/li&gt;
+  &lt;li&gt;Follow you supervisor’s students and projects. Because you need to work with they in the next years.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Secondly, you need to install some software to make my work more efficient. But I only have some simple tips to share at present as below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.zotero.org/&quot;&gt;Zotero&lt;/a&gt;: It could help you collect and organise your papers. The tool is free and cross the all platforms (Windows &amp;amp; Linux &amp;amp; Mac);&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://evernote.com&quot;&gt;evernote&lt;/a&gt;: You can paste some usefull idea and theory from your readed papers or online articles;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goldendict.org/&quot;&gt;GoldenDict&lt;/a&gt;: It could help you translate english words to chinese, especially for non-english countries. It’s very convenient if you use its hotkey (ctrl+c+c);&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/23&quot;&gt;Markdown&lt;/a&gt;: Actually it’s not a software, just a format for writing articles, but it’s very userful and you only just focus on the article content not the format;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://doit.im/&quot;&gt;Doit.im&lt;/a&gt;: a tool which you can manage your time and tasks. If you could deal with your daily time and paper time, you will be very relax and happy every day.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;At last, you need to practise and work hard. I am on the way and hope you can go with me.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Dec 2014 15:49:03 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2014/12/04/necessary-work-before-research/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2014/12/04/necessary-work-before-research/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>NLP resources for beginners</title>
+        <description>&lt;p&gt;I am doing some research with NLP technology, but I did not use it before, so this technology is new for me and for you. But I have found some userfull resources for beginners and me.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h3 id=&quot;books&quot;&gt;Books&lt;/h3&gt;
+&lt;p&gt;1.&lt;a href=&quot;http://www.nltk.org/book/&quot;&gt;Natural Language Processing With Python&lt;/a&gt; (free);
+2.Python Text Processing with NLTK 2.0&lt;/p&gt;
+
+&lt;h3 id=&quot;package&quot;&gt;Package&lt;/h3&gt;
+&lt;p&gt;1.http://www.nltk.org/
+2.https://pypi.python.org/pypi/PyNLPl/
+3.https://github.com/nltk/nltk
+4.http://www.clips.ua.ac.be/pages/pattern-en
+5.https://github.com/sloria/textblob
+6.https://code.google.com/p/gachalign/&lt;/p&gt;
+</description>
+        <pubDate>Tue, 02 Dec 2014 12:59:20 -0800</pubDate>
+        <link>http://www.ourren.com/en/en/2014/12/02/nlp-resources-for-beginners/</link>
+        <guid isPermaLink="true">http://www.ourren.com/en/en/2014/12/02/nlp-resources-for-beginners/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
